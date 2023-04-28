@@ -3,8 +3,10 @@ package com.erz.sdjpaintro.bootstrap;
 import com.erz.sdjpaintro.domain.Book;
 import com.erz.sdjpaintro.repositories.BookRepository;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
+@Profile({"local", "default"})
 @Component
 public class DataInitializer implements CommandLineRunner {
 
@@ -29,6 +31,5 @@ public class DataInitializer implements CommandLineRunner {
 
         bookRepository.findAll().forEach(book ->
                System.out.println("Book Title: " + book.getId()) );
-
     }
 }
